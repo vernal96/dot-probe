@@ -1,0 +1,9 @@
+{
+  "name": "Dot Probe",
+  "short_name": "DotProbe",
+  "display": "standalone",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#005bbb",
+  "icons": []
+}

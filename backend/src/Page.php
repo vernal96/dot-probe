@@ -42,10 +42,11 @@ class Page
             'hidden_title' => $params['hidden_title'] ?? false,
             'title' => $this->title,
             'content' => $content,
+            'header' => $params['header'] ?? null
         ]);
     }
 
-    private function renderFile(string $file, array $params): string
+    public function renderFile(string $file, array $params = []): string
     {
         $viewPath = __DIR__ . "/views/$file.php";
 

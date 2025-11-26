@@ -1,0 +1,52 @@
+.image-box {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* большая высота */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* чтобы было видно пустые места */
+    border-radius: 8px;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* probe: всегда в одном и том же месте — центр контейнера */
+.probe {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 96px; /* крупный смайлик */
+    line-height: 1;
+    pointer-events: none; /* чтобы клик попадал на контейнер, а не на сам probe */
+    display: none;
+    user-select: none;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Индикатор и лог */
+#status {
+    min-height: 2.2em;
+}
+
+pre#log {
+    max-height: 200px;
+    overflow: auto;
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.clickable {
+    cursor: pointer;
+}

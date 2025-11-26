@@ -11,7 +11,8 @@ use Slim\Psr7\Response;
 $app->get('/', function (Request $request, Response $response) {
     $response->getBody()->write(new Page('Главная', $request)->render('index', [
         'hidden_title' => true,
-        'items' => new UploadPhoto()->get()
+        'items' => new UploadPhoto()->get(),
+        'header' => new Page()->renderFile('index-header')
     ]));
     return $response;
 })->setName('index');
