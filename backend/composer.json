@@ -1,0 +1,12 @@
+{
+  "require": {
+    "slim/slim": "^4.12",
+    "slim/psr7": "^1.6",
+    "ext-http": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
