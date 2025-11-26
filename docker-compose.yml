@@ -1,0 +1,27 @@
+services:
+  php:
+    build: ./backend
+    container_name: photo_uploader_php
+    volumes:
+      - ./backend/:/var/www/html/
+    environment:
+      - PHP_DISPLAY_ERRORS=1
+    networks:
+      - dot-picker
+
+  nginx:
+    image: nginx:alpine
+    container_name: photo_uploader_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend/:/var/www/html/
+      - ./backend/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - dot-picker
+
+networks:
+  dot-picker:
+    driver: bridge
