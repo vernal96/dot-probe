@@ -18,7 +18,7 @@ $errors = $params['errors'] ?? [];
 <?php endif; ?>
 
 <a href="<?= $route->urlFor('list') ?>" class="btn btn-link p-0 mb-3">Перейти к списку</a>
-<form action="/upload" class="mb-4" method="post" enctype="multipart/form-data">
+<form action="/upload-form" class="mb-4" method="post" enctype="multipart/form-data">
     <div class="row g-3">
         <div class="col-md-6">
             <label class="form-label">Отрицательное фото</label>
