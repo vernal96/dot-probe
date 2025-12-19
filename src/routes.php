@@ -17,7 +17,7 @@ $app->get('/', function (Request $request, Response $response) {
     return $response;
 })->setName('index');
 
-$app->get('/upload', function (Request $request, Response $response) {
+$app->get('/upload-form', function (Request $request, Response $response) {
     $response->getBody()->write(new Page('Загрузка фото', $request)->render('upload'));
     return $response;
 })->setName('upload.form');
@@ -39,7 +39,7 @@ $app->post('/delete', function (Request $request, Response $response) {
         ->withStatus(302);
 })->setName('delete.form');
 
-$app->post('/upload', function (Request $request, Response $response) {
+$app->post('/upload-form', function (Request $request, Response $response) {
     global $app;
     $errors = [];
 
