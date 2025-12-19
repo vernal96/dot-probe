@@ -46,6 +46,9 @@ class Dir
     {
         $result = [];
         $path = $path ? self::getUploadDir() . $path : self::getUploadDir();
+
+        if (!file_exists($path)) return $result;
+
         foreach (scandir($path) as $item) {
             if ($item === '.' || $item === '..') continue;
             $result[] = $item;
