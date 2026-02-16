@@ -17,13 +17,18 @@ self.addEventListener("activate", () => self.clients.claim());
 self.addEventListener("fetch", (event) => {
     const requestURL = new URL(event.request.url);
 
-    // кэшируем только те урлы, которые в CACHE_URLS
     if (CACHE_URLS.includes(requestURL.pathname)) {
         event.respondWith(
-            caches.match(event.request).then(res => res || fetch(event.request))
+            fetch(event.request)
+                .then((networkResponse) => {
+                    return caches.open(CACHE).then((cache) => {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                })
+                .catch(() => caches.match(event.request))
         );
     } else {
-        // для всего остального — просто сеть, без кэша
         event.respondWith(fetch(event.request));
     }
 });
